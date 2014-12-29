@@ -42,19 +42,19 @@ namespace ClearMeasure.Library
 
         public string GetOutput(int value)
         {
-            var builder = new StringBuilder();
+            string output = null;
 
             foreach (var rule in _rules)
             {
                 if ((value % rule.Key) == 0)
                 {
-                    builder.Append(rule.Value);
+                    output += rule.Value;
                 }
             }
 
-            return (builder.Length == 0) 
+            return (output == null)
                 ? value.ToString()
-                : builder.ToString();
+                : output;
         }
     }    
 }
