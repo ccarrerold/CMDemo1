@@ -13,17 +13,14 @@ namespace ClearMeasure.Library.UnitTests.Tests
         protected override void Setup()
         {
             base.Setup();
-            var customRules = this.GetCustomRules();
-            Utilities = new CMUtilities(false, customRules);
-        }
-
-        protected virtual Dictionary<int, string> GetCustomRules()
-        {
-            return new Dictionary<int, string>()
+            
+            var customRules = new Dictionary<int, string>()
             {
                 { 3, "foo" },
                 { 5, "bar" }
             };
+
+            Utilities = new CMUtilities(false, customRules);
         }
 
         [Test]
